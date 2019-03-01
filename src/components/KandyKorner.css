@@ -1,0 +1,61 @@
+.kandyKorner {
+    display: flex;
+    margin-top: 100px;
+    justify-content: space-around;
+    flex-direction: row;
+    background-color: whitesmoke;
+    flex-wrap: wrap;
+    color: red;
+    border-radius: 200px;
+    padding: 50px;
+}
+
+.fire {
+    background-image: url("https://i.newyorkupstate.com/resizer/krhMPqK10PKv4fxPyCv2NHv1o_Y=/600x0/arc-anglerfish-arc2-prod-advancelocal/public/O4XSX3FHDBB7JIUC4YPF7H4UDY.jpg");
+    background-size: 100%
+}
+
+.sunglasses {
+    background-image: url("https://ak2.picdn.net/shutterstock/videos/859822/thumb/1.jpg");
+    font-family: cursive;
+    animation: example infinite 5s linear;
+    background-position: 0px -70px;
+}
+
+@keyframes example {
+    0%   {color: red;}
+    25%  {color: yellow;}
+    50%  {color: blue;}
+    100% {color: green;}
+  }
+
+@keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
+
+.title {
+    font-family: cursive;
+    font-size: 60px;
+}
+
+
+.spin {
+    animation: App-logo-spin infinite 2s linear, rainbow infinite 1s alternate;
+}
+
+@keyframes rainbow {
+    0%   {color: red;}
+    12%  {color: orange;}
+    25%  {color: yellow;}
+    37%  {color: green;}
+    50%  {color: turquoise;}
+    62%  {color: blue;}
+    75% {color: indigo;}
+    88% {color: violet;}
+    100% {color: pink;}
+  }

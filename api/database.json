@@ -1,0 +1,85 @@
+{
+  "employeeArray": [
+    {
+      "id": 1,
+      "name": "Kirren"
+    },
+    {
+      "id": 2,
+      "name": "Mo"
+    },
+    {
+      "id": 3,
+      "name": "Nathan"
+    },
+    {
+      "id": 4,
+      "name": "Jacob"
+    },
+    {
+      "id": 5,
+      "name": "Sam"
+    },
+    {
+      "id": 6,
+      "name": "Justina"
+    },
+    {
+      "id": 7,
+      "name": "Steve"
+    },
+    {
+      "id": 8,
+      "name": "Abbey"
+    },
+    {
+      "id": 9,
+      "name": "Niall"
+    },
+    {
+      "id": 10,
+      "name": "Antonio"
+    }
+  ],
+  "storeArray": [
+    {
+      "id": 1,
+      "name": "North Store",
+      "address": "500 Circle Way"
+    },
+    {
+      "id": 2,
+      "name": "West Store",
+      "address": "501 Square Way"
+    },
+    {
+      "id": 3,
+      "name": "East Store",
+      "address": "502 Triangle Way"
+    },
+    {
+      "id": 4,
+      "name": "South Store",
+      "address": "503 Cube Way"
+    }
+  ],
+  "candyTypeArray": [
+    {
+      "id": 1,
+      "name": "Candy Bar"
+    },
+    {
+      "id": 2,
+      "name": "Gummi Candy"
+    },
+    {
+      "id": 3,
+      "name": "Hard Candy"
+    },
+    {
+      "id": 4,
+      "name": "Other"
+    }
+  ],
+  "candyArray": []
+}

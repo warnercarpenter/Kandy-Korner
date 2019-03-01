@@ -1,12 +1,20 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import ReactDOM from "react-dom"
+import React from 'react'
+import { BrowserRouter as Router } from "react-router-dom"
+import KandyKorner from "./components/KandyKorner"
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import './index.css'
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(
+    <Router>
+        <KandyKorner />
+    </Router>
+    , document.getElementById('root'))
+
+document.getElementById("coolButton").addEventListener("click", event => {
+    new Audio('https://dl.dropbox.com/s/bjys9xln30r5kn1/motley.mp3?dl=0').play()
+    document.body.classList.toggle("fire")
+    document.getElementById("kandyKorner").classList.toggle("sunglasses")
+    document.getElementById("title").classList.toggle("spin")
+    document.getElementById("fall").classList.toggle("fallingLeaves")
+})
