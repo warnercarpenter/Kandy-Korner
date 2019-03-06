@@ -1,3 +1,3 @@
 export default {
-    remoteURL: "http://localhost:5002"
+    fetchURL: "http://localhost:5002"
 }

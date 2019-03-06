@@ -1,4 +1,4 @@
-import { Route } from 'react-router-dom'
+import { Route, Redirect } from 'react-router-dom'
 import React, { Component } from "react"
 import StoreList from './store/StoreList'
 import CandyList from './candy/CandyList'
@@ -7,15 +7,29 @@ import CandyManager from '../modules/CandyManager'
 import CandyTypeManager from '../modules/CandyTypeManager'
 import EmployeeManager from '../modules/EmployeeManager'
 import LocationManager from '../modules/LocationManager'
+import EmployeeForm from './employee/EmployeeForm';
+import Login from './authentication/Login'
 
 
 class ApplicationViews extends Component {
+
+    isAuthenticated = () => sessionStorage.getItem("credentials") !== null || localStorage.getItem("credentials") !== null
 
     state = {
         stores: [],
         employees: [],
         candyTypes: [],
         candies: []
+    }
+
+    addEmployee = employee => {
+        return EmployeeManager.post(employee)
+            .then(() => EmployeeManager.getAll())
+            .then(employees =>
+                this.setState({
+                    employees: employees
+                })
+            );
     }
 
     deleteCandy = (id) => {
@@ -44,14 +58,36 @@ class ApplicationViews extends Component {
         return (
             <div id="kandyKorner">
                 <Route exact path="/" render={() => {
-                    return <StoreList stores={this.state.stores} />
+                    if (this.isAuthenticated()) {
+                        return <StoreList stores={this.state.stores} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
                 }} />
                 <Route exact path="/candies" render={() => {
-                    return <CandyList candies={this.state.candies} candyTypes={this.state.candyTypes} deleteCandy={this.deleteCandy} />
+                    if (this.isAuthenticated()) {
+                        return <CandyList candies={this.state.candies} candyTypes={this.state.candyTypes} deleteCandy={this.deleteCandy} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
                 }} />
-                <Route exact path="/employees" render={() => {
-                    return <EmployeeList employees={this.state.employees} />
+                <Route exact path="/employees" render={(props) => {
+                    if (this.isAuthenticated()) {
+                        return <EmployeeList {...props} employees={this.state.employees} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
                 }} />
+                <Route path="/employees/new" render={(props) => {
+                    if (this.isAuthenticated()) {
+                        return <EmployeeForm {...props}
+                            addEmployee={this.addEmployee}
+                            employees={this.state.employees} />
+                    } else {
+                        return <Redirect to="/login" />
+                    }
+                }} />
+                <Route path="/login" component={Login} />
             </div>
         )
     }
